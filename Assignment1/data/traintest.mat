@@ -1,0 +1,9 @@
+with open('MNIST_data/train-labels.idx1-ubyte', 'rb') as f:
+    zero, data_type, dims = struct.unpack('>HBB', f.read(4))
+    shape = tuple(struct.unpack('>I', f.read(4))[0] for d in range(dims))
+    yTrain_original = np.fromstring(f.read(), dtype=np.uint8).reshape(shape)
+    
+with open('MNIST_data/train-images.idx3-ubyte', 'rb') as f:
+    zero, data_type, dims = struct.unpack('>HBB', f.read(4))
+    shape = tuple(struct.unpack('>I', f.read(4))[0] for d in range(dims))
+    XTrain_original = np.fromstring(f.read(), dtype=np.uint8).reshape(shape)
