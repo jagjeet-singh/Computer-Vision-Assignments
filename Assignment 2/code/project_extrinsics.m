@@ -1,0 +1,1 @@
+function [X] = project_extrinsics(K, W, R, t)

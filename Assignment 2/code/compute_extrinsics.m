@@ -1,0 +1,1 @@
+function [R,t] = compute_extrinsics(K, H)
