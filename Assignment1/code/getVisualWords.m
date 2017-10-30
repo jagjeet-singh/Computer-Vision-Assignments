@@ -8,14 +8,13 @@ function [wordMap] = getVisualWords(img, filterBank, dictionary)
 %   wordMap: WordMap matrix of same size as the input image (h, w)
 
     % TODO Implement your code here
+        dictionary = dictionary';
         img_filtered = extractFilterResponses(img, filterBank);
         
         h=size(img_filtered,1);
         w=size(img_filtered,2);
         f=size(img_filtered,3);
         image_filtered_flat = reshape(img_filtered,[w*h,f]);
-        size(image_filtered_flat)
-        size(dictionary)
         distances = pdist2(image_filtered_flat,dictionary);
         [~,min_index] = min(distances,[],2);
         wordMap = reshape(min_index,[h w]);

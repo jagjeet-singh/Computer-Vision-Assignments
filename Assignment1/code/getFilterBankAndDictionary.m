@@ -27,5 +27,6 @@ function [filterBank, dictionary] = getFilterBankAndDictionary(imPaths)
         filter_responses(alpha*(i-1)+1:i*alpha,:) = filter_response_sample;
     end
     [~,dictionary] = kmeans(filter_responses,K,'EmptyAction','drop');
+    dictionary = dictionary';
 %     dictionary = dictionary_row';
 end
